@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: cafe-bot-go
+    env: go
+    region: frankfurt
+    buildCommand: "go build -o bot main.go analyzer.go"
+    startCommand: "./bot"
+    envVars:
+      - key: BOT_TOKEN
+        sync: false
+      - key: AUTHORIZED_IDS
+        sync: false
+      - key: WEBHOOK_URL
+        value: https://cafe-bot-go.onrender.com/webhook
